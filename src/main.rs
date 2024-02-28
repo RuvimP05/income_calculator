@@ -20,13 +20,11 @@ enum Message {
 }
 
 pub fn tax_amount(x: f32) -> f32 {
-    let tax_decimal = 1.0 - (x / 100.0);
-    tax_decimal
+    1.0 - (x / 100.0)
 }
 
 pub fn tax(x: f32, y: f32) -> f32 {
-    let net_income = x * y;
-    net_income
+    x * y
 }
 
 pub fn main() -> iced::Result {
@@ -75,7 +73,7 @@ impl Sandbox for App {
         }
     }
     fn view(&self) -> Element<Message> {
-        let error_text = Text::new(format!("{}", self.error_msg));
+        let error_text = Text::new(&self.error_msg);
 
         let income_prompt = Text::new("Enter Gross Income");
         let input1 = TextInput::new("Enter quantity here...", &self.input1)
