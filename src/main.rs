@@ -49,7 +49,7 @@ impl Sandbox for App {
                     self.input_to_int = parsed_value;
                 }
                 Err(_) => {
-                    self.error_msg = "Invalid Input".to_string();
+                    self.error_msg = String::from("Invalid Input");
                     self.input_to_int = 0.0;
                 }
             },
@@ -58,17 +58,17 @@ impl Sandbox for App {
                     self.tax_percent = tax_amount(parsed_value);
                 }
                 Err(_) => {
-                    self.error_msg = "Invalid Input".to_string();
+                    self.error_msg = String::from("Invalid Input");
                     self.tax_percent = 0.0;
                 }
             },
-            Message::TextInputChanged1(change1) => {
-                self.input1 = change1;
-                self.error_msg = "".to_string();
+            Message::TextInputChanged1(changed_input) => {
+                self.input1 = changed_input;
+                self.error_msg = String::from("");
             }
-            Message::TextInputChanged2(change2) => {
-                self.input2 = change2;
-                self.error_msg = "".to_string();
+            Message::TextInputChanged2(changed_input) => {
+                self.input2 = changed_input;
+                self.error_msg = String::from("");
             }
         }
     }
